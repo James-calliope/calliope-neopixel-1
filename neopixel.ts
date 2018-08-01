@@ -86,9 +86,9 @@ namespace neopixel {
             const h1 = startHue;
             const h2 = endHue;
             const hDistCW = ((h2 + 360) - h1) % 360;
-            const hStepCW = (hDistCW * 100)/ steps;
+            const hStepCW = (hDistCW * 100) / steps;
             const hDistCCW = ((h1 + 360) - h2) % 360;
-            const hStepCCW = -(hDistCCW * 100)/ steps;
+            const hStepCCW = -(hDistCCW * 100) / steps
             let hStep: number;
             if (direction === HueInterpolationDirection.Clockwise) {
                 hStep = hStepCW;
@@ -103,14 +103,14 @@ namespace neopixel {
             const s1 = saturation;
             const s2 = saturation;
             const sDist = s2 - s1;
-            const sStep = sDist/ steps;
+            const sStep = sDist / steps;
             const s1_100 = s1 * 100;
 
             //lum
             const l1 = luminance;
             const l2 = luminance;
             const lDist = l2 - l1;
-            const lStep = lDist/ steps;
+            const lStep = lDist / steps;
             const l1_100 = l1 * 100
 
             //interpolate
@@ -119,9 +119,9 @@ namespace neopixel {
             } else {
                 this.setPixelColor(0, hsl(startHue, saturation, luminance));
                 for (let i = 1; i < steps - 1; i++) {
-                    const h = (h1_100 + i * hStep)/ 100 + 360;
-                    const s = (s1_100 + i * sStep)/ 100;
-                    const l = (l1_100 + i * lStep)/ 100;
+                    const h = (h1_100 + i * hStep) / 100 + 360;
+                    const s = (s1_100 + i * sStep) / 100;
+                    const l = (l1_100 + i * lStep) / 100;
                     this.setPixelColor(i, hsl(h, s, l));
                 }
                 this.setPixelColor(steps - 1, hsl(endHue, saturation, luminance));
@@ -136,8 +136,7 @@ namespace neopixel {
          * @param high maximum value, eg: 255
          */
         //% weight=84
-        //% blockId=neopixel_show_bar_graph block="%strip|show bar graph of %value|up to %high" 
-        //% icon="\uf080"
+        //% blockId=neopixel_show_bar_graph block="%strip|show bar graph of %value |up to %high" icon="\uf080" blockExternalInputs=true
         //% parts="neopixel"
         showBarGraph(value: number, high: number): void {
             if (high <= 0) {
@@ -150,7 +149,7 @@ namespace neopixel {
             value = Math.abs(value);
             const n = this._length;
             const n1 = n - 1;
-            let v = (value * n)/ high;
+            let v = (value * n) / high;
             if (v == 0) {
                 this.setPixelColor(0, 0x666600);
                 for (let i = 1; i < n; ++i)
@@ -158,7 +157,7 @@ namespace neopixel {
             } else {
                 for (let i = 0; i < n; ++i) {
                     if (i <= v) {
-                        const b = (i * 255)/ n1;
+                        let b = i * 255 / n1;
                         this.setPixelColor(i, neopixel.rgb(b, 0, 255 - b));
                     }
                     else this.setPixelColor(i, 0);
@@ -205,7 +204,7 @@ namespace neopixel {
         //% parts="neopixel" advanced=true
         setMatrixColor(x: number, y: number, rgb: number) {
             if (this._matrixWidth <= 0) return; // not a matrix, ignore
-            const cols = this._length/ this._matrixWidth;
+            const cols = this._length / this._matrixWidth;
             if (x < 0 || x >= this._matrixWidth || y < 0 || y >= cols) return;
             let i = x + y * this._matrixWidth;
             this.setPixelColor(i, rgb);
@@ -226,7 +225,7 @@ namespace neopixel {
             }
         }
 
-        /** 
+        /**
          * Send all the changes to the strip.
          */
         //% blockId="neopixel_show" block="%strip|show" blockGap=8
@@ -279,13 +278,11 @@ namespace neopixel {
             const br = this.brightness;
             const buf = this.buf;
             const end = this.start + this._length;
-            const mid = this._length/ 2;
+            const mid = this._length / 2;
             for (let i = this.start; i < end; ++i) {
                 const k = i - this.start;
                 const ledoffset = i * stride;
-                const br = k > mid
-                    ? (255 * (this._length - 1 - k) * (this._length - 1 - k))/ (mid * mid)
-                    : (255 * k * k)/ (mid * mid);
+                const br = k > mid ? 255 * (this._length - 1 - k) * (this._length - 1 - k) / (mid * mid) : 255 * k * k / (mid * mid);
                 serial.writeLine(k + ":" + br);
                 const r = (buf[ledoffset + 0] * br) >> 8; buf[ledoffset + 0] = r;
                 const g = (buf[ledoffset + 1] * br) >> 8; buf[ledoffset + 1] = g;
@@ -304,7 +301,6 @@ namespace neopixel {
         //% weight=89
         //% blockId="neopixel_range" block="%strip|range from %start|with %length|leds"
         //% parts="neopixel"
-        //% blockSetVariable=range
         range(start: number, length: number): Strip {
             let strip = new Strip();
             strip.buf = this.buf;
@@ -313,7 +309,6 @@ namespace neopixel {
             strip.start = this.start + Math.clamp(0, this._length - 1, start);
             strip._length = Math.clamp(0, this._length - (strip.start - this.start), length);
             strip._matrixWidth = 0;
-            strip._mode = this._mode;
             return strip;
         }
 
@@ -369,8 +364,8 @@ namespace neopixel {
                     p += this.buf[i + j];
                 }
             }
-            return this.length()/ 2 /* 0.5mA per neopixel */
-                + (p * 433)/ 10000; /* rought approximation */
+            return this.length() / 2 /* 0.5mA per neopixel */
+                + (p * 433) / 10000; /* rought approximation */
         }
 
         private setBufferRGB(offset: number, red: number, green: number, blue: number): void {
@@ -464,7 +459,6 @@ namespace neopixel {
     //% weight=90 blockGap=8
     //% parts="neopixel"
     //% trackArgs=0,2
-    //% blockSetVariable=strip
     export function create(pin: DigitalPin, numleds: number, mode: NeoPixelMode): Strip {
         let strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
@@ -525,7 +519,6 @@ namespace neopixel {
      */
     //% blockId=neopixelHSL block="hue %h|saturation %s|luminosity %l"
     export function hsl(h: number, s: number, l: number): number {
-       
         h = h % 360;
         s = Math.clamp(0, 99, s);
         l = Math.clamp(0, 99, l);
@@ -555,7 +548,6 @@ namespace neopixel {
         let g = g$ + m;
         let b = b$ + m;
         return packRGB(r, g, b);
-    
     }
 
     export enum HueInterpolationDirection {
