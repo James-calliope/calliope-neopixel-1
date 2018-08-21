@@ -460,7 +460,7 @@ namespace neopixel {
     //% parts="neopixel"
     //% trackArgs=0,2
     export function create(pin: DigitalPin, numleds: number, mode: NeoPixelMode): void {
-        strip = new Strip();
+        let strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
         strip.buf = pins.createBuffer(numleds * stride);
         strip.start = 0;
@@ -469,7 +469,7 @@ namespace neopixel {
         strip._matrixWidth = 0;
         strip.setBrightness(255)
         strip.setPin(pin)
-        return strip;
+        
     }
 
     /**
