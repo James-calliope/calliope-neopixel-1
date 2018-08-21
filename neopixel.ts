@@ -301,8 +301,8 @@ namespace neopixel {
         //% weight=89
         //% blockId="neopixel_range" block="%strip|range from %start|with %length|leds"
         //% parts="neopixel"
-        range(start: number, length: number): void {
-            strip = new Strip();
+        range(start: number, length: number): Strip {
+            let strip = new Strip();
             strip.buf = this.buf;
             strip.pin = this.pin;
             strip.brightness = this.brightness;
@@ -459,8 +459,8 @@ namespace neopixel {
     //% weight=90 blockGap=8
     //% parts="neopixel"
     //% trackArgs=0,2
-    export function create(pin: DigitalPin, numleds: number, mode: NeoPixelMode): Strip {
-        let strip = new Strip();
+    export function create(pin: DigitalPin, numleds: number, mode: NeoPixelMode): void {
+        strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
         strip.buf = pins.createBuffer(numleds * stride);
         strip.start = 0;
