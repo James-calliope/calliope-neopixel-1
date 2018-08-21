@@ -301,7 +301,7 @@ namespace neopixel {
         //% weight=89
         //% blockId="neopixel_range" block="%strip|range from %start|with %length|leds"
         //% parts="neopixel"
-        range(start: number, length: number): Strip {
+        range(start: number, length: number): void {
             let strip = new Strip();
             strip.buf = this.buf;
             strip.pin = this.pin;
