@@ -302,7 +302,7 @@ namespace neopixel {
         //% blockId="neopixel_range" block="%strip|range from %start|with %length|leds"
         //% parts="neopixel"
         range(start: number, length: number): void {
-            let strip = new Strip();
+            strip = new Strip();
             strip.buf = this.buf;
             strip.pin = this.pin;
             strip.brightness = this.brightness;
