@@ -20,8 +20,10 @@ namespace neopixel {
       uBit.display.print(MicroBitImage(imageBytes(leds)), 0, 0, 0, interval);
     }
 
-
-   //%block="teste"
+   /**
+    *  Starts the Bluetooth accelerometer service
+    */
+   //%block="teste" icon="\uf00a"
    //%parts="neopixel"
   void test(){
   }
