@@ -15,13 +15,14 @@ namespace neopixel {
     //% weight=95 blockGap=8
     //% imageLiteral=1 async
     //% block="show leds" icon="\uf00a"
-    //% parts="ledmatrix"
+    //% parts="neopixel"
   void showLeds(ImageLiteral leds, int interval = 400) {
       uBit.display.print(MicroBitImage(imageBytes(leds)), 0, 0, 0, interval);
     }
 
 
-  //%block="teste"
+   //%block="teste"
+   //%parts="neopixel"
   void test(){
   }
   
