@@ -29,4 +29,9 @@ namespace neopixel {
       uBit.display.print(MicroBitImage(imageBytes(leds)), 0, 0, 0, interval);
     }
 
+
+  //%block
+  void test(){
+  }
+
 }
