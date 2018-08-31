@@ -67,6 +67,15 @@ namespace neopixel {
         }
 
         /**
+        * TODO: Beschreibe deine Funktion hier
+        * @param value Beschreibe den Wert hier, eg: 5
+        */    
+        //% block
+        export function fib(value: number): number {
+            return value <= 1 ? value : fib(value -1) + fib(value - 2);
+        }
+        
+        /**
          * Shows a rainbow pattern on all LEDs. 
          * @param startHue the start hue value for the rainbow, eg: 1
          * @param endHue the end hue value for the rainbow, eg: 360
