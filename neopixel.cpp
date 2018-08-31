@@ -1,6 +1,8 @@
 #include "pxt.h"
 
 
+using namespace pxt;
+
 namespace neopixel {
 
 
@@ -19,7 +21,7 @@ namespace neopixel {
     }
 
 
-  //%block
+  //%block="teste"
   void test(){
   }
   
