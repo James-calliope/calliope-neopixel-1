@@ -180,15 +180,6 @@ namespace neopixel {
             this.setPixelRGB(pixeloffset, rgb);
         }
 
-	/**
-	*
-	*
-	*/
-	//%block
-	showLEDs(leds: ImageLiteral){
-
-	}
-
         /**
          * Sets the number of pixels in a matrix shaped strip
          * @param width number of pixels in a row
