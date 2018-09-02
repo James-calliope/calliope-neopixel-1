@@ -73,18 +73,20 @@ namespace neopixel {
         //% weight=85 blockGap=8
         //% parts="neopixel"
         rotateBrightness(){
-	   this.setBrightness(200);
-	   this.show();
-	   basic.pause(100);
-	   this.setBrightness(150);
-           this.show();
-	   basic.pause(100);
-	   this.setBrightness(100);
-           this.show();
-	   basic.pause(100);
-	   this.setBrightness(50);
-           this.show();
-	   basic.pause(100);
+		
+	   		showRainbow(1,360)
+	   		this.setBrightness(200);
+	   		this.show();
+	   		basic.pause(100);
+	   		this.setBrightness(150);
+           	this.show();
+	   		basic.pause(100);
+	   		this.setBrightness(100);
+           	this.show();
+	   		basic.pause(100);
+	   		this.setBrightness(50);
+           	this.show();
+	   		basic.pause(100);
 	   
 	    
         }
