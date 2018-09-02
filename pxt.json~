@@ -1,6 +1,5 @@
 {
     "name": "neopixel",
-    "version": "0.8.7",
     "description": "AdaFruit NeoPixel driver test",
     "license": "MIT",
     "dependencies": {
