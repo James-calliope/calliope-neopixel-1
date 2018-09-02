@@ -79,14 +79,14 @@ namespace neopixel {
 	        this.show();
 	        basic.pause(100);
 	        this.setBrightness(50);
-		this.show();
-	   	basic.pause(100);
-	   	this.setBrightness(50);
+	        this.show();
+	   	    basic.pause(100);
+	   	    this.setBrightness(50);
            	this.show();
-	   	basic.pause(100);
-	   	this.setBrightness(50);
+	   	    basic.pause(100);
+	   	    this.setBrightness(0);
            	this.show();
-	   	basic.pause(100);
+	   	    basic.pause(100);
 	   
 	    
         }
