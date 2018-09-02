@@ -74,19 +74,19 @@ namespace neopixel {
         //% parts="neopixel"
         rotateBrightness(){
 		
-	        showRainbow(1,360)
+	        this.showRainbow(1,360)
 	        this.setBrightness(200);
 	        this.show();
 	        basic.pause(100);
 	        this.setBrightness(150);
-		    this.show();
-	   		basic.pause(100);
-	   		this.setBrightness(100);
+		this.show();
+	   	basic.pause(100);
+	   	this.setBrightness(100);
            	this.show();
-	   		basic.pause(100);
-	   		this.setBrightness(50);
+	   	basic.pause(100);
+	   	this.setBrightness(50);
            	this.show();
-	   		basic.pause(100);
+	   	basic.pause(100);
 	   
 	    
         }
