@@ -69,34 +69,34 @@ namespace neopixel {
 	 /**
          * Pulsiert die Helligkeit
          */
-        //% blockId="neopixel_rotate_color" block="%strip|rotate color" 
+        //% blockId="neopixel_rotate_color" block="%strip|rotate brightness" 
         //% weight=85 blockGap=8
         //% parts="neopixel"
-        rotateBrightness() {
-            this.setBrightness(200);
-            this.show();
-	    basic.pause(100);
-	    this.setBrightness(150);
-            this.show();
-	    basic.pause(100);
-	    this.setBrightness(100);
-            this.show();
-	    basic.pause(100);
-	    this.setBrightness(50);
-            this.show();
-	    basic.pause(100);
-	    this.setBrightness(100);
-            this.show();
-	    basic.pause(100);
-	    this.setBrightness(150);
-            this.show();
-	    basic.pause(100);
-	    this.setBrightness(200);
-            this.show();
-	    basic.pause(100);
-	    this.setBrightness(250);
-            this.show();
-	    basic.pause(100);
+        rotateBrightness(){
+	   this.setBrightness(200);
+	   this.show();
+	   basic.pause(100);
+	   this.setBrightness(150);
+           this.show();
+	   basic.pause(100);
+	   this.setBrightness(100);
+           this.show();
+	   basic.pause(100);
+	   this.setBrightness(50);
+           this.show();
+	   basic.pause(100);
+	   this.setBrightness(100);
+           this.show();
+	   basic.pause(100);
+	   this.setBrightness(150);
+           this.show();
+	   basic.pause(100);
+	   this.setBrightness(200);
+           this.show();
+	   basic.pause(100);
+	   this.setBrightness(250);
+           this.show();
+	   basic.pause(100);
 	    
         }
 
