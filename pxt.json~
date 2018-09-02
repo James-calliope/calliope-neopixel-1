@@ -13,7 +13,8 @@
         "neopixel.cpp",
         "_locales/ja/neopixel-strings.json",
         "_locales/de/neopixel-strings.json",
-        "_locales/de/neopixel-jsdoc-strings.json"
+        "_locales/de/neopixel-jsdoc-strings.json",
+	"shims.d.ts"
     ],
     "testFiles": [
         "neotest.ts"
