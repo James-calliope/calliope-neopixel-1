@@ -66,6 +66,32 @@ namespace neopixel {
             this.show();
         }
 
+	 /**
+         * Pulsiert die Helligkeit
+         */
+        //% blockId="neopixel_rotate_color" block="%strip|rotate color" 
+        //% weight=85 blockGap=8
+        //% parts="neopixel"
+        rotateBrightness() {
+            this.setBrightness(200);
+            this.show();
+	    this.setBrightness(150);
+            this.show();
+	    this.setBrightness(100);
+            this.show();
+	    this.setBrightness(50);
+            this.show();
+	    this.setBrightness(100);
+            this.show();
+	    this.setBrightness(150);
+            this.show();
+	    this.setBrightness(200);
+            this.show();
+	    this.setBrightness(250);
+            this.show();
+	    
+        }
+
         /**
         * TODO: Beschreibe deine Funktion hier
         * @param value Beschreibe den Wert hier, eg: 5
