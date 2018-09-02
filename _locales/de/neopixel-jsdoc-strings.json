@@ -17,8 +17,8 @@
   "neopixel.Strip.showRainbow": "Zeigt ein Regenbogenmuster auf allen NeoPixeln an.",
   "neopixel.Strip.show": "Sendet alle Änderungen an die NeoPixel.",
   "neopixel.Strip.fib": "Testfunktion",
-  "neopixel.Strip.test": "Testfunktion",
-  "neopixel.Strip.showLeds": "Farbwechsel",
+  "neopixel.test": "Testfunktion",
+  "neopixel.showLeds": "Farbwechsel",
   "neopixel.hsl": "Erstellt eine HSL-Farbe",
   "neopixel.rgb": "Erstellt eine RGB-Farbe",
   "neopixel.colors": "bekannte RGB-Farben"
