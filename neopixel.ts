@@ -136,8 +136,8 @@ namespace neopixel {
                 this.setPixelColor(steps - 1, hsl(endHue, saturation, luminance));
             }
             this.show();
-        }
-
+	    }
+	    
         /**
          * Displays a vertical bar graph based on the `value` and `high` value.
          * If `high` is 0, the chart gets adjusted automatically.
