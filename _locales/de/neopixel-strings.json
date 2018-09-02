@@ -27,6 +27,7 @@
   "neopixel.Strip.showColor|block": "%strip|zeige Farbe %rgb=neopixel_colors",
   "neopixel.Strip.showRainbow|block": "%strip|zeige Regenbogen von Farbton %startHue|bis %endHue",
   "neopixel.Strip.show|block": "%strip|anzeigen",
+  "neopixel.Strip.rotateBrightness|block": "%strip|pulsiere die Helligkeit des Neopixels",
   "neopixel.colors|block": "%color",
   "neopixel.create|block": "NeoPixels an Pin %pin|mit %numleds|Pixeln und Modus %mode",
   "neopixel.hsl|block": "HSL-Farbe: Farbwert %hue|Sättigung %sat|Helligkeit %lum",
