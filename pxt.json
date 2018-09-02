@@ -11,7 +11,9 @@
         "README.md",
         "neopixel.ts",
 	"neopixel.cpp",
-        "_locales/ja/neopixel-strings.json"
+        "_locales/ja/neopixel-strings.json",
+	"_locales/de/neopixel-strings.json",
+	"_locales/de/neopixel-jsdoc-strings.json"
     ],
     "testFiles": [
         "neotest.ts"
