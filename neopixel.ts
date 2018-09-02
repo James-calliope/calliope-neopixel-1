@@ -136,7 +136,7 @@ namespace neopixel {
         * @param value Beschreibe den Wert hier, eg: 5
         */    
         //% block
-        export function fib(value: number): number {
+        fib(value: number): number {
             return value <= 1 ? value : fib(value -1) + fib(value - 2);
         }
         
