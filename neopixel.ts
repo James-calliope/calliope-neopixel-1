@@ -70,7 +70,9 @@ namespace neopixel {
         * TODO: Beschreibe deine Funktion hier
         * @param value Beschreibe den Wert hier, eg: 5
         */    
-        //% block="%strip|show rainbow from %value"
+        //%blockId="neopixel_fib"  block="%strip|show rainbow from %value"
+	//% weight=85 blockGap=8
+	//% parts="neopixel"
         fib(value: number): number {
             return value;
         }
