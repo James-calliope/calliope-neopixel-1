@@ -70,7 +70,7 @@ namespace neopixel {
         * TODO: Beschreibe deine Funktion hier
         * @param value Beschreibe den Wert hier, eg: 5
         */    
-        //% block
+        //% block="%strip|show rainbow from %value"
         fib(value: number): number {
             return value;
         }
