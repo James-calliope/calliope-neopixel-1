@@ -23,7 +23,7 @@ namespace neopixel {
    /**
     *  Starts the Bluetooth accelerometer service
     */
-   //%block="%strip|test" icon="\uf00a"
+   //%block="test" icon="\uf00a"
    //%parts="neopixel" advanced=true
   void test(int test=1){
   }

@@ -15,7 +15,6 @@ declare namespace neopixel {
     /**
      *  Starts the Bluetooth accelerometer service
      */
-    //%block="test" icon="\uf00a"
     //%parts="neopixel" advanced=true test.defl=1 shim=neopixel::test
     function test(test?: number): void;
 }
