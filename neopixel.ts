@@ -66,14 +66,7 @@ namespace neopixel {
             this.show();
         }
 
-        /**
-        * TODO: Beschreibe deine Funktion hier
-        * @param value Beschreibe den Wert hier, eg: 5
-        */    
-        //% block
-        export function fib(value: number): number {
-            return value <= 1 ? value : fib(value -1) + fib(value - 2);
-        }
+      
         
         /**
          * Shows a rainbow pattern on all LEDs. 
@@ -138,6 +131,15 @@ namespace neopixel {
             this.show();
         }
 
+          /**
+        * TODO: Beschreibe deine Funktion hier
+        * @param value Beschreibe den Wert hier, eg: 5
+        */    
+        //% block
+        export function fib(value: number): number {
+            return value <= 1 ? value : fib(value -1) + fib(value - 2);
+        }
+        
         /**
          * Displays a vertical bar graph based on the `value` and `high` value.
          * If `high` is 0, the chart gets adjusted automatically.
