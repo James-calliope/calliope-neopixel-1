@@ -66,16 +66,18 @@ namespace neopixel {
             this.show();
         }
 
-	 /**
+	    /**
          * Pulsiert die Helligkeit
+		 * @param rgb RGB color of the LED
          */
-        //% blockId="neopixel_rotate_color" block="%strip|rotate brightness" 
+        //% blockId="neopixel_rotate_color" block="%strip|rotate brightness for color %rgb=neopixel_colors" 
         //% weight=85 blockGap=8
         //% parts="neopixel"
-        rotateBrightness(){
+        rotateBrightness(rgb: number){
 		
 	        //this.showRainbow(1,360)
 			this.setBrightness(0);
+			this.setAllRGB(rgb);
 			this.show();
 	        //this.setBrightness(50);
 			this.show();
