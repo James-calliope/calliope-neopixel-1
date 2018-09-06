@@ -36,6 +36,13 @@ enum NeoPixelMode {
     RGB_RGB = 2
 }
 
+enum Symbols {
+       Herz,
+       Smiley,
+       Note
+   
+   }
+
 /**
  * Functions to operate NeoPixel strips.
  */
@@ -592,10 +599,5 @@ namespace neopixel {
         Shortest
     }
 
-   enum Symbols {
-       Heart,
-       Smiley,
-       Note
    
-   }
 }
