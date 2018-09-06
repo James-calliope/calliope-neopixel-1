@@ -222,6 +222,46 @@ namespace neopixel {
         showSymbol(symbol: Symbols, rgb: number) {
 			if (this._length < 64) return;
 	    	if(symbol === Symbols.Heart){
+				this.setPixelColor(1, rgb);
+				this.setPixelColor(2, rgb);
+				this.setPixelColor(5, rgb);
+				this.setPixelColor(6, rgb);
+				this.setPixelColor(8, rgb);
+				this.setPixelColor(9, rgb);
+				this.setPixelColor(10, rgb);
+				this.setPixelColor(11, rgb);
+				this.setPixelColor(12, rgb);
+				this.setPixelColor(13, rgb);
+				this.setPixelColor(14, rgb);
+				this.setPixelColor(15, rgb);
+				this.setPixelColor(16, rgb);
+				this.setPixelColor(17, rgb);
+				this.setPixelColor(18, rgb);
+				this.setPixelColor(19, rgb);
+				this.setPixelColor(20, rgb);
+				this.setPixelColor(21, rgb);
+				this.setPixelColor(22, rgb);
+				this.setPixelColor(23, rgb);
+				this.setPixelColor(24, rgb);
+				this.setPixelColor(25, rgb);
+				this.setPixelColor(26, rgb);
+				this.setPixelColor(27, rgb);
+				this.setPixelColor(28, rgb);
+				this.setPixelColor(29, rgb);
+				this.setPixelColor(30, rgb);
+				this.setPixelColor(31, rgb);
+				this.setPixelColor(33, rgb);
+				this.setPixelColor(34, rgb);
+				this.setPixelColor(35, rgb);
+				this.setPixelColor(36, rgb);
+				this.setPixelColor(37, rgb);
+				this.setPixelColor(38, rgb);
+				this.setPixelColor(42, rgb);
+				this.setPixelColor(43, rgb);
+				this.setPixelColor(44, rgb);
+				this.setPixelColor(45, rgb);
+				this.setPixelColor(51, rgb);
+				this.setPixelColor(52, rgb);
 	    
 	    	}else if(symbol===Symbols.Smiley){
 	        	this.setPixelColor(10, rgb);
