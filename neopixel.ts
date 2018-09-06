@@ -46,7 +46,7 @@ namespace neopixel {
      */
     export class Strip {
 	buf: Buffer;
-	colors: number[]=[];
+	colors: Buffer;
         pin: DigitalPin;
         // TODO: encode as bytes instead of 32bit
         brightness: number;
@@ -251,9 +251,9 @@ namespace neopixel {
 	    let br = this.brightness;
 	    const end = this.start + this._length;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
-	    
+	    const color = this.colors;
             for (let i = this.start; i < end; ++i) {
-		let colorRGB=colors[i];
+		let colorRGB=color[i];
 		let red = unpackR(colorRGB);
                 let green = unpackG(colorRGB);
                 let blue = unpackB(colorRGB);
@@ -423,7 +423,7 @@ namespace neopixel {
         let strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
         strip.buf= pins.createBuffer(numleds * stride);
-	strip.colors=[numleds]
+	strip.colors=pins.createBuffer(numleds);
         strip.start = 0;
         strip._length = numleds;
         strip._mode = mode;
