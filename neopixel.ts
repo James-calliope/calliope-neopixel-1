@@ -236,6 +236,22 @@ namespace neopixel {
 				this.setPixelColor(53, rgb);
 
 	    	}else if(symbol===Symbols.Note){
+				this.setPixelColor(13, rgb);
+				this.setPixelColor(18, rgb);
+				this.setPixelColor(19, rgb);
+				this.setPixelColor(21, rgb);
+				this.setPixelColor(25, rgb);
+				this.setPixelColor(26, rgb);
+				this.setPixelColor(29, rgb);
+				this.setPixelColor(33, rgb);
+				this.setPixelColor(34, rgb);
+				this.setPixelColor(37, rgb);
+				this.setPixelColor(42, rgb);
+				this.setPixelColor(43, rgb);
+				this.setPixelColor(45, rgb);
+				this.setPixelColor(46, rgb);
+				this.setPixelColor(51, rgb);
+				this.setPixelColor(52, rgb);
 	    	}
             
         }
