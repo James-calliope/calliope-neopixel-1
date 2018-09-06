@@ -251,13 +251,13 @@ namespace neopixel {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             for (let i = this.start; i < end; ++i) {
 				if (this._mode === NeoPixelMode.RGB_RGB) {
-                	red=this.buf[i*stride];
-                	green=this.buf[i*stride+1];
+                	let red=this.buf[i*stride];
+                	let green=this.buf[i*stride+1];
             	} else {
-                	green=this.buf[i*stride];
-                	red=this.buf[i*stride+1];
+                	let green=this.buf[i*stride];
+                	let red=this.buf[i*stride+1];
             	}
-				blue=this.buf[i*stride+2];
+				let blue=this.buf[i*stride+2];
 				
 				if (br < 255) {
                 	red = (red * br) >> 8;
@@ -469,6 +469,47 @@ namespace neopixel {
         let b = (rgb) & 0xFF;
         return b;
     }
+	/**
+     * Converts a hue saturation luminosity value into a RGB color
+     * @param h hue from 0 to 360
+     * @param s saturation from 0 to 99
+     * @param l luminosity from 0 to 99
+     */
+    export function hsl(h: number, s: number, l: number): number {
+        h = Math.round(h);
+        s = Math.round(s);
+        l = Math.round(l);
+        
+        h = h % 360;
+        s = Math.clamp(0, 99, s);
+        l = Math.clamp(0, 99, l);
+        let c = Math.idiv((((100 - Math.abs(2 * l - 100)) * s) << 8), 10000); //chroma, [0,255]
+        let h1 = Math.idiv(h, 60);//[0,6]
+        let h2 = Math.idiv((h - h1 * 60) * 256, 60);//[0,255]
+        let temp = Math.abs((((h1 % 2) << 8) + h2) - 256);
+        let x = (c * (256 - (temp))) >> 8;//[0,255], second largest component of this color
+        let r$: number;
+        let g$: number;
+        let b$: number;
+        if (h1 == 0) {
+            r$ = c; g$ = x; b$ = 0;
+        } else if (h1 == 1) {
+            r$ = x; g$ = c; b$ = 0;
+        } else if (h1 == 2) {
+            r$ = 0; g$ = c; b$ = x;
+        } else if (h1 == 3) {
+            r$ = 0; g$ = x; b$ = c;
+        } else if (h1 == 4) {
+            r$ = x; g$ = 0; b$ = c;
+        } else if (h1 == 5) {
+            r$ = c; g$ = 0; b$ = x;
+        }
+        let m = Math.idiv((Math.idiv((l * 2 << 8), 100) - c), 2);
+        let r = r$ + m;
+        let g = g$ + m;
+        let b = b$ + m;
+        return packRGB(r, g, b);
+	}
 
     export enum HueInterpolationDirection {
         Clockwise,
