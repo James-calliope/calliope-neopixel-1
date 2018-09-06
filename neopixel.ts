@@ -295,19 +295,19 @@ namespace neopixel {
         //% parts="neopixel" advanced=true
         setBrightness(brightness: number): void {
             this.brightness = brightness & 0xff;
-	    let br = this.brightness;
-	    const end = this.start + this._length;
+	    	let br = this.brightness;
+	    	const end = this.start + this._length;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
-	    const color = this.colors;
+	    	const color = this.colors;
             for (let i = this.start; i < end; ++i) {
-		let colorRGB=color[i];
-		serial.writeNumber(colorRGB);
-		serial.writeLine("");
-		let red = unpackR(colorRGB);
-                let green = unpackG(colorRGB);
-                let blue = unpackB(colorRGB);
+				let colorRGB=color[i*stride];
+				serial.writeNumber(colorRGB);
+				serial.writeLine("");
+				let red = color[i*stride];
+                let green = color[(i*stride)+1];
+                let blue = color[(i*stride)+1];
 				
-		if (br < 255) {
+				if (br < 255) {
                     red = (red * br) >> 8;
                     green = (green * br) >> 8;
                     blue = (blue * br) >> 8;
@@ -387,6 +387,9 @@ namespace neopixel {
             let red = unpackR(rgb);
             let green = unpackG(rgb);
             let blue = unpackB(rgb);
+			let redOld = unpackR(rgb);
+            let greenOld = unpackG(rgb);
+            let blueOld = unpackB(rgb);
 
             const br = this.brightness;
             if (br < 255) {
@@ -398,12 +401,15 @@ namespace neopixel {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             for (let i = this.start; i < end; ++i) {
                 this.setBufferRGB(i * stride, red, green, blue);
-		serial.writeNumber(rgb);
-		serial.writeLine("")
-		//this.colors[1]=50;
-		this.colors[i]=red;
-		serial.writeNumber(this.colors[i])
-		serial.writeLine("");
+				this.colors[i*stride]=redOld;
+				this.colors[(i*stride)+1]=greenOld;
+				this.colors[(i*stride)+2]=blueOld;
+				serial.writeNumber(rgb);
+				serial.writeLine("")
+				//this.colors[1]=50;
+				this.colrs[i]=red;
+				serial.writeNumber(this.colors[i])
+				serial.writeLine("");
 
             }
         }
@@ -428,13 +434,15 @@ namespace neopixel {
                 return;
 
             let stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
-	    this.colors[pixeloffset]=rgb;
+	    
             pixeloffset = (pixeloffset + this.start) * stride;
 
             let red = unpackR(rgb);
             let green = unpackG(rgb);
             let blue = unpackB(rgb);
-
+			this.colors[pixeloffset]=red;
+			this.colors[pixeloffset+1]=green;
+			this.colors[pixeloffset+2]=blue;
             let br = this.brightness;
             if (br < 255) {
                 red = (red * br) >> 8;
@@ -475,7 +483,7 @@ namespace neopixel {
         let strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
         strip.buf= pins.createBuffer(numleds * stride);
-	strip.colors=pins.createBuffer(numleds);
+	strip.colors=pins.createBuffer(numleds * stride);
         strip.start = 0;
         strip._length = numleds;
         strip._mode = mode;
