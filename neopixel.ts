@@ -345,7 +345,7 @@ namespace neopixel {
 				serial.writeLine("");
 				let red = color[i*stride];
                 let green = color[(i*stride)+1];
-                let blue = color[(i*stride)+1];
+                let blue = color[(i*stride)+2];
 				
 				if (br < 255) {
                     red = (red * br) >> 8;
@@ -615,7 +615,7 @@ namespace neopixel {
         Shortest
     }
 
-   export enum Symbols {
+   enum Symbols {
        Heart,
        Smiley,
        Note
