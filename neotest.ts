@@ -19,9 +19,6 @@
     sub.showColor(NeoPixelColors.Yellow);
     basic.pause(200);
 
-    sub.showBarGraph(5, 10);
-    basic.pause(200);
-
     let br = 100;
     strip.setBrightness(100);
     input.onButtonPressed(Button.B, () => {
