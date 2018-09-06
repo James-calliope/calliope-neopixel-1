@@ -1,7 +1,7 @@
 {
   "neopixel.create": "Erzeuge einen neuen Treiber für die gegebene Anzahl NeoPixels, die am angegebenen Port angeschlossen sind. Der Modus bestimmt die genaue Bauart der NeoPixel.",
   "neopixel.Strip.showColor": "Setze alle Pixel auf die angegebene Farbe und rufe ``anzeigen`` auf.",
-  "neopixel.Strip.setBrigthness": "Setze die Helligkeit der NeoPixel (0-255). Die Änderung betrifft nur zukünftige Operationen.",
+  "neopixel.Strip.setBrigthness": "Setze die Helligkeit der NeoPixel (0-255). Damit die Änderung sichtbar wird, muss anschließend ``anzeigen`` aufgerufen werden.",
   "neopixel.Strip.clear": "Schalte alle NeoPixel aus. Damit die Änderung sichtbar wird, muss anschließend ``anzeigen`` aufgerufen werden.",
   "neopixel.Strip.rotateBrigthness": "Rotiere die Helligkeit",
   "neopixel.Strip.rotate": "Rotiert die Farben der NeoPixel. Damit die Änderung sichtbar wird, muss anschließend ``anzeigen`` aufgerufen werden.",
@@ -9,7 +9,7 @@
   "neopixel.Strip.shift": "Verschiebt die Farben der NeoPixel. Damit die Änderung sichtbar wird, muss anschließend ``anzeigen`` aufgerufen werden.",
   "neopixel.Strip.showRainbow": "Zeigt ein Regenbogenmuster auf allen NeoPixeln an.",
   "neopixel.Strip.show": "Sendet alle Änderungen an die NeoPixel.",
-  "neopixel.Strip.showSymbol": "Zeigt ein Symbol auf einer Matrix an.",
+  "neopixel.Strip.showSymbol": "Zeigt ein Symbol auf einer Matrix an. Die Matrix sollte mehr als 64 Pixel haben. Damit die Änderung sichtbar wird, muss anschließend ``anzeigen`` aufgerufen werden.",
   "neopixel.rgb": "Erstellt eine RGB-Farbe",
   "neopixel.colors": "bekannte RGB-Farben"
 }
