@@ -250,8 +250,8 @@ namespace neopixel {
 				this.setPixelColor(43, rgb);
 				this.setPixelColor(45, rgb);
 				this.setPixelColor(46, rgb);
-				this.setPixelColor(51, rgb);
 				this.setPixelColor(52, rgb);
+				this.setPixelColor(53, rgb);
 	    	}
             
         }
