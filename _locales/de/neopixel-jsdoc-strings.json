@@ -9,6 +9,7 @@
   "neopixel.Strip.shift": "Verschiebt die Farben der NeoPixel. Damit die Änderung sichtbar wird, muss anschließend ``anzeigen`` aufgerufen werden.",
   "neopixel.Strip.showRainbow": "Zeigt ein Regenbogenmuster auf allen NeoPixeln an.",
   "neopixel.Strip.show": "Sendet alle Änderungen an die NeoPixel.",
+  "neopixel.Strip.showSymbol": "Zeigt ein Symbol auf einer Matrix an.",
   "neopixel.rgb": "Erstellt eine RGB-Farbe",
   "neopixel.colors": "bekannte RGB-Farben"
 }
