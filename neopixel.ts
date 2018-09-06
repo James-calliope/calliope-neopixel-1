@@ -254,6 +254,7 @@ namespace neopixel {
 	    const color = this.colors;
             for (let i = this.start; i < end; ++i) {
 		let colorRGB=color[i];
+		serial.writeNumber(colorRGB)
 		let red = unpackR(colorRGB);
                 let green = unpackG(colorRGB);
                 let blue = unpackB(colorRGB);
