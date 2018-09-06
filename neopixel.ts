@@ -220,15 +220,15 @@ namespace neopixel {
         //% blockId="neopixel_show_symbol" block="%string|set symbol in color %rgb=neopixel_colors" 
         //% weight=4
         //% parts="neopixel" advanced=true
-        showSymbol(symbol: Symbol, rgb: number) {
-	    if(symbol === Symbol.Heart){
+        showSymbol(symbol: Symbols, rgb: number) {
+	    if(symbol === Symbols.Heart){
 	    
-	    }else if(symbol===Symbol.Smiley){
+	    }else if(symbol===Symbols.Smiley){
 	        this.setPixelColor(11, rgb);
 		this.setPixelColor(14, rgb);
 		this.setPixelColor(19, rgb);
 		this.setPixelColor(22, rgb);
-	    }else if(symbol===Symbol.Note){
+	    }else if(symbol===Symbols.Note){
 	    }
             
         }
