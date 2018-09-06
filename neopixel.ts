@@ -216,7 +216,7 @@ namespace neopixel {
          * @param symbol Symbol
          * @param rgb RGB color of the LED
          */
-        //% blockId="neopixel_show_symbol" block="%strip|set symbol in color %rgb=neopixel_colors" 
+        //% blockId="neopixel_show_symbol" block="%strip|set symbol %symbol in color %rgb=neopixel_colors" 
         //% weight=4
         //% parts="neopixel" advanced=true
         showSymbol(symbol: Symbols, rgb: number) {
@@ -277,7 +277,8 @@ namespace neopixel {
 	    const color = this.colors;
             for (let i = this.start; i < end; ++i) {
 		let colorRGB=color[i];
-		serial.writeNumber(colorRGB)
+		serial.writeNumber(colorRGB);
+		serial.writeLine("");
 		let red = unpackR(colorRGB);
                 let green = unpackG(colorRGB);
                 let blue = unpackB(colorRGB);
@@ -372,9 +373,14 @@ namespace neopixel {
             const end = this.start + this._length;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             for (let i = this.start; i < end; ++i) {
-                this.setBufferRGB(i * stride, red, green, blue)
-		serial.writeNumber(rgb)
+                this.setBufferRGB(i * stride, red, green, blue);
+		serial.writeNumber(rgb);
+		serial.writeLine("")
+
 		this.colors[i]=rgb;
+		serial.writeNumber(this.colors[i])
+		serial.writeLine("");
+
             }
         }
         private setAllW(white: number) {
