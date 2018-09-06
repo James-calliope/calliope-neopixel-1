@@ -45,8 +45,8 @@ namespace neopixel {
      * A NeoPixel strip
      */
     export class Strip {
-	[buf: Buffer]:number;
-	colors: Buffer;
+	buf: Buffer;
+	colors: number[];
         pin: DigitalPin;
         // TODO: encode as bytes instead of 32bit
         brightness: number;
@@ -54,6 +54,7 @@ namespace neopixel {
         _length: number; // number of LEDs
         _mode: NeoPixelMode;
         _matrixWidth: number; // number of leds in a matrix - if any
+	
 
         /**
          * Shows all LEDs to a given color (range 0-255 for r, g, b). 
@@ -422,7 +423,7 @@ namespace neopixel {
         let strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
         strip.buf= pins.createBuffer(numleds * stride);
-	strip.colors=pins.createBuffer(numleds);
+	strip.colors=[numleds]
         strip.start = 0;
         strip._length = numleds;
         strip._mode = mode;
