@@ -250,10 +250,12 @@ namespace neopixel {
 	    let br = this.brightness;
 	    const end = this.start + this._length;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
+	    
             for (let i = this.start; i < end; ++i) {
-		let red = unpackR(colors[i]);
-                let green = unpackG(colors[i]);
-                let blue = unpackB(colors[i]);
+		let colorRGB=colors[i];
+		let red = unpackR(colorRGB);
+                let green = unpackG(colorRGB);
+                let blue = unpackB(colorRGB);
 				
 		if (br < 255) {
                     red = (red * br) >> 8;
