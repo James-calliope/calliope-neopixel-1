@@ -213,11 +213,10 @@ namespace neopixel {
 	/**
          * Set LED to a given color (range 0-255 for r, g, b) in a matrix shaped strip 
          * You need to call ``show`` to make the changes visible.
-         * @param x horizontal position
-         * @param y horizontal position
+         * @param symbol Symbol
          * @param rgb RGB color of the LED
          */
-        //% blockId="neopixel_show_symbol" block="%string|set symbol in color %rgb=neopixel_colors" 
+        //% blockId="neopixel_show_symbol" block="%strip|set symbol in color %rgb=neopixel_colors" 
         //% weight=4
         //% parts="neopixel" advanced=true
         showSymbol(symbol: Symbols, rgb: number) {
