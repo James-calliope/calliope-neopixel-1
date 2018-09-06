@@ -45,7 +45,7 @@ namespace neopixel {
      * A NeoPixel strip
      */
     export class Strip {
-        buf: Buffer;
+	[buf: Buffer]:number;
 	colors: Buffer;
         pin: DigitalPin;
         // TODO: encode as bytes instead of 32bit
