@@ -208,6 +208,30 @@ namespace neopixel {
             let i = x + y * this._matrixWidth;
             this.setPixelColor(i, rgb);
         }
+	    
+	    
+	/**
+         * Set LED to a given color (range 0-255 for r, g, b) in a matrix shaped strip 
+         * You need to call ``show`` to make the changes visible.
+         * @param x horizontal position
+         * @param y horizontal position
+         * @param rgb RGB color of the LED
+         */
+        //% blockId="neopixel_show_symbol" block="%string|set symbol in color %rgb=neopixel_colors" 
+        //% weight=4
+        //% parts="neopixel" advanced=true
+        showSymbol(symbol: Symbol, rgb: number) {
+	    if(symbol === Symbol.Heart){
+	    
+	    }else if(symbol===Symbol.Smiley){
+	        this.setPixelColor(11, rgb);
+		this.setPixelColor(14, rgb);
+		this.setPixelColor(19, rgb);
+		this.setPixelColor(22, rgb);
+	    }else if(symbol===Symbol.Note){
+	    }
+            
+        }
         
 
         /**
@@ -274,9 +298,6 @@ namespace neopixel {
          * @param start offset in the LED strip to start the range
          * @param length number of LEDs in the range. eg: 4
          */
-        //% weight=89
-        //% blockId="neopixel_range" block="%strip|range from %start|with %length|leds"
-        //% parts="neopixel"
         range(start: number, length: number): Strip {
             let strip = new Strip();
             strip.buf = this.buf;
@@ -515,4 +536,11 @@ namespace neopixel {
         CounterClockwise,
         Shortest
     }
+
+   export enum Symbols {
+       Heart,
+       Smiley,
+       Note
+   
+   }
 }
