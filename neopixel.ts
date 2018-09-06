@@ -37,7 +37,7 @@ enum NeoPixelMode {
 }
 
 enum Symbols {
-       Herz,
+       Heart,
        Smiley,
        Note
    
@@ -425,7 +425,7 @@ namespace neopixel {
 				this.colors[(i*stride)+2]=blueOld;
 				serial.writeNumber(redOld);
 				serial.writeLine("")
-				serial.writeNumber(geenOld);
+				serial.writeNumber(greenOld);
 				serial.writeLine("")
 				serial.writeNumber(blueOld);
 				serial.writeLine("")
