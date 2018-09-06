@@ -385,7 +385,7 @@ namespace neopixel {
 		serial.writeNumber(rgb);
 		serial.writeLine("")
 		//this.colors[1]=50;
-		this.colors[i]=50;
+		this.colors[i]=red;
 		serial.writeNumber(red)
 		serial.writeLine("");
 
