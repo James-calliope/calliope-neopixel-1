@@ -354,6 +354,7 @@ namespace neopixel {
         shift(offset: number = 1): void {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             this.buf.shift(-offset * stride, this.start * stride, this._length * stride)
+	    	this.colors.shift(-offset * stride, this.start * stride, this._length * stride)
         }
 
         /**
@@ -367,6 +368,7 @@ namespace neopixel {
         rotate(offset: number = 1): void {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             this.buf.rotate(-offset * stride, this.start * stride, this._length * stride)
+            this.colors.rotate(-offset * stride, this.start * stride, this._length * stride)
         }
 
         /**
