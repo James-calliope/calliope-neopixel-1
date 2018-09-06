@@ -246,23 +246,25 @@ namespace neopixel {
         //% parts="neopixel" advanced=true
         setBrightness(brightness: number): void {
             this.brightness = brightness & 0xff;
-	    	let br = this.brightness;
-			const end = this.start + this._length;
+	    let br = this.brightness;
+	    const end = this.start + this._length;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             for (let i = this.start; i < end; ++i) {
-				if (this._mode === NeoPixelMode.RGB_RGB) {
-                	let red=this.buf[i*stride];
-                	let green=this.buf[i*stride+1];
+		let red =0;
+		let green =0;
+		if (this._mode === NeoPixelMode.RGB_RGB) {
+                    red=this.buf[i*stride];
+                    green=this.buf[i*stride+1];
             	} else {
-                	let green=this.buf[i*stride];
-                	let red=this.buf[i*stride+1];
+                    green=this.buf[i*stride];
+                    red=this.buf[i*stride+1];
             	}
-				let blue=this.buf[i*stride+2];
+		let blue=this.buf[i*stride+2];
 				
-				if (br < 255) {
-                	red = (red * br) >> 8;
-                	green = (green * br) >> 8;
-                	blue = (blue * br) >> 8;
+		if (br < 255) {
+                    red = (red * br) >> 8;
+                    green = (green * br) >> 8;
+                    blue = (blue * br) >> 8;
             	}			
                 this.setBufferRGB(i * stride, red, green, blue)
             }
