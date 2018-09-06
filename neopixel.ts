@@ -220,7 +220,7 @@ namespace neopixel {
         //% weight=4
         //% parts="neopixel" advanced=true
         showSymbol(symbol: Symbols, rgb: number) {
-			if (this._length <= 64) return;
+			if (this._length < 64) return;
 	    	if(symbol === Symbols.Heart){
 	    
 	    	}else if(symbol===Symbols.Smiley){
