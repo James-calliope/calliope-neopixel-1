@@ -374,6 +374,7 @@ namespace neopixel {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             for (let i = this.start; i < end; ++i) {
                 this.setBufferRGB(i * stride, red, green, blue)
+		serial.writeNumber(rgb)
 		this.colors[i]=rgb;
             }
         }
