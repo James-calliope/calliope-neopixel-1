@@ -76,26 +76,26 @@ namespace neopixel {
         rotateBrightness(){
 		
 	        //this.showRainbow(1,360)
-			this.setBrightness(200);
-			this.show();
+		this.setBrightness(200);
+		this.show();
 	    	this.setBrightness(150);
-			this.show();
+		this.show();
 	    	this.setBrightness(100);
-			this.show();
-	   		this.setBrightness(50);
-			this.show();
-			this.setBrightness(0);
-			this.show();
-			this.setBrightness(50);
-			this.show();
-			this.setBrightness(100);
-			this.show();
+		this.show();
+	   	this.setBrightness(50);
+		this.show();
+		this.setBrightness(0);
+		this.show();
+		this.setBrightness(50);
+		this.show();
+		this.setBrightness(100);
+		this.show();
 	    	this.setBrightness(150);
-			this.show();
-	   		this.setBrightness(200);
-			this.show();
-			this.setBrightness(250);
-			this.show();
+		this.show();
+	   	this.setBrightness(200);
+		this.show();
+		this.setBrightness(250);
+		this.show();
 	   	//basic.pause(100);
 	    
         }
@@ -421,7 +421,7 @@ namespace neopixel {
     export function create(pin: DigitalPin, numleds: number, mode: NeoPixelMode): Strip {
         let strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
-        strip.= pins.createBuffer(numleds * stride);
+        strip.buf= pins.createBuffer(numleds * stride);
         strip.start = 0;
         strip._length = numleds;
         strip._mode = mode;
