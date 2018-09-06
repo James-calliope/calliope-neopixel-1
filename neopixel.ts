@@ -376,7 +376,7 @@ namespace neopixel {
                 this.setBufferRGB(i * stride, red, green, blue);
 		serial.writeNumber(rgb);
 		serial.writeLine("")
-
+		this.colors[1]=50;
 		this.colors[i]=rgb;
 		serial.writeNumber(this.colors[i])
 		serial.writeLine("");
