@@ -70,40 +70,34 @@ namespace neopixel {
          * Pulsiert die Helligkeit
 		 * @param rgb RGB color of the LED
          */
-        //% blockId="neopixel_rotate_color" block="%strip|rotate brightness for color %rgb=neopixel_colors" 
+        //% blockId="neopixel_rotate_color" block="%strip|rotate brightness" 
         //% weight=85 blockGap=8
         //% parts="neopixel"
-        rotateBrightness(rgb: number){
+        rotateBrightness(){
 		
 	        //this.showRainbow(1,360)
-			this.setBrightness(0);
-			this.setAllRGB(rgb);
+			this.setBrightness(200);
 			this.show();
-	        //this.setBrightness(50);
+	    	this.setBrightness(150);
 			this.show();
-			basic.pause(100);
-	        //this.setBrightness(50);
+	    	this.setBrightness(100);
 			this.show();
-			basic.pause(100);
-	   	//this.setBrightness(50);
+	   		this.setBrightness(50);
 			this.show();
-	   	//basic.pause(100);
 			this.setBrightness(0);
 			this.show();
+			this.setBrightness(50);
+			this.show();
+			this.setBrightness(100);
+			this.show();
+	    	this.setBrightness(150);
+			this.show();
+	   		this.setBrightness(200);
+			this.show();
+			this.setBrightness(250);
+			this.show();
 	   	//basic.pause(100);
-	   
 	    
-        }
-
-        /**
-        * TODO: Beschreibe deine Funktion hier
-        * @param value Beschreibe den Wert hier, eg: 5
-        */    
-        //%blockId="neopixel_fib"  block="%strip|show rainbow from %value"
-	//% weight=85 blockGap=8
-	//% parts="neopixel"
-        fib(value: number): number {
-            return value;
         }
         
         /**
@@ -168,43 +162,6 @@ namespace neopixel {
             }
             this.show();
 	    }
-	    
-        /**
-         * Displays a vertical bar graph based on the `value` and `high` value.
-         * If `high` is 0, the chart gets adjusted automatically.
-         * @param value current value to plot
-         * @param high maximum value, eg: 255
-         */
-        //% weight=84
-        //% blockId=neopixel_show_bar_graph block="%strip|show bar graph of %value |up to %high" icon="\uf080" blockExternalInputs=true
-        //% parts="neopixel"
-        showBarGraph(value: number, high: number): void {
-            if (high <= 0) {
-                this.clear();
-                this.setPixelColor(0, NeoPixelColors.Yellow);
-                this.show();
-                return;
-            }
-
-            value = Math.abs(value);
-            const n = this._length;
-            const n1 = n - 1;
-            let v = (value * n) / high;
-            if (v == 0) {
-                this.setPixelColor(0, 0x666600);
-                for (let i = 1; i < n; ++i)
-                    this.setPixelColor(i, 0);
-            } else {
-                for (let i = 0; i < n; ++i) {
-                    if (i <= v) {
-                        let b = i * 255 / n1;
-                        this.setPixelColor(i, neopixel.rgb(b, 0, 255 - b));
-                    }
-                    else this.setPixelColor(i, 0);
-                }
-            }
-            this.show();
-        }
 
         /**
          * Set LED to a given color (range 0-255 for r, g, b). 
@@ -250,20 +207,6 @@ namespace neopixel {
             this.setPixelColor(i, rgb);
         }
         
-        /**
-         * For NeoPixels with RGB+W LEDs, set the white LED brightness. This only works for RGB+W NeoPixels.
-         * @param pixeloffset position of the LED in the strip
-         * @param white brightness of the white LED
-         */
-        //% blockId="neopixel_set_pixel_white" block="%strip|set pixel white LED at %pixeloffset|to %white" 
-        //% blockGap=8
-        //% weight=80
-        //% parts="neopixel" advanced=true
-        setPixelWhiteLED(pixeloffset: number, white: number): void {
-            if (this._mode === NeoPixelMode.RGBW) {
-                this.setPixelW(pixeloffset, white);
-            }
-        }
 
         /**
          * Send all the changes to the strip.
@@ -290,8 +233,6 @@ namespace neopixel {
         /**
          * Gets the number of pixels declared on the strip
          */
-        //% blockId="neopixel_length" block="%strip|length" blockGap=8
-        //% weight=60 advanced=true
         length() {
             return this._length;
         }
@@ -305,32 +246,27 @@ namespace neopixel {
         //% parts="neopixel" advanced=true
         setBrightness(brightness: number): void {
             this.brightness = brightness & 0xff;
-        }
-
-        /**
-         * Apply brightness to current colors using a quadratic easing function.
-         **/
-        //% blockId="neopixel_each_brightness" block="%strip|ease brightness" blockGap=8
-        //% weight=58
-        //% parts="neopixel" advanced=true
-        easeBrightness(): void {
+	    	let br = this.brightness;
+			const end = this.start + this._length;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
-            const br = this.brightness;
-            const buf = this.buf;
-            const end = this.start + this._length;
-            const mid = this._length / 2;
             for (let i = this.start; i < end; ++i) {
-                const k = i - this.start;
-                const ledoffset = i * stride;
-                const br = k > mid ? 255 * (this._length - 1 - k) * (this._length - 1 - k) / (mid * mid) : 255 * k * k / (mid * mid);
-                serial.writeLine(k + ":" + br);
-                const r = (buf[ledoffset + 0] * br) >> 8; buf[ledoffset + 0] = r;
-                const g = (buf[ledoffset + 1] * br) >> 8; buf[ledoffset + 1] = g;
-                const b = (buf[ledoffset + 2] * br) >> 8; buf[ledoffset + 2] = b;
-                if (stride == 4) {
-                    const w = (buf[ledoffset + 3] * br) >> 8; buf[ledoffset + 3] = w;
-                }
+				if (this._mode === NeoPixelMode.RGB_RGB) {
+                	red=this.buf[i*stride];
+                	green=this.buf[i*stride+1];
+            	} else {
+                	green=this.buf[i*stride];
+                	red=this.buf[i*stride+1];
+            	}
+				blue=this.buf[i*stride+2];
+				
+				if (br < 255) {
+                	red = (red * br) >> 8;
+                	green = (green * br) >> 8;
+                	blue = (blue * br) >> 8;
+            	}			
+                this.setBufferRGB(i * stride, red, green, blue)
             }
+			            
         }
 
         /** 
@@ -389,24 +325,6 @@ namespace neopixel {
             // don't yield to avoid races on initialization
         }
 
-        /**
-         * Estimates the electrical current (mA) consumed by the current light configuration.
-         */
-        //% weight=9 blockId=neopixel_power block="%strip|power (mA)"
-        //% advanced=true
-        power(): number {
-            const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
-            const end = this.start + this._length;
-            let p = 0;
-            for (let i = this.start; i < end; ++i) {
-                const ledoffset = i * stride;
-                for (let j = 0; j < stride; ++j) {
-                    p += this.buf[i + j];
-                }
-            }
-            return this.length() / 2 /* 0.5mA per neopixel */
-                + (p * 433) / 10000; /* rought approximation */
-        }
 
         private setBufferRGB(offset: number, red: number, green: number, blue: number): void {
             if (this._mode === NeoPixelMode.RGB_RGB) {
@@ -418,6 +336,7 @@ namespace neopixel {
             }
             this.buf[offset + 2] = blue;
         }
+	
 
         private setAllRGB(rgb: number) {
             let red = unpackR(rgb);
@@ -502,7 +421,7 @@ namespace neopixel {
     export function create(pin: DigitalPin, numleds: number, mode: NeoPixelMode): Strip {
         let strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
-        strip.buf = pins.createBuffer(numleds * stride);
+        strip.= pins.createBuffer(numleds * stride);
         strip.start = 0;
         strip._length = numleds;
         strip._mode = mode;
@@ -549,45 +468,6 @@ namespace neopixel {
     function unpackB(rgb: number): number {
         let b = (rgb) & 0xFF;
         return b;
-    }
-
-    /**
-     * Converts a hue saturation luminosity value into a RGB color
-     * @param h hue from 0 to 360
-     * @param s saturation from 0 to 99
-     * @param l luminosity from 0 to 99
-     */
-    //% blockId=neopixelHSL block="hue %h|saturation %s|luminosity %l"
-    export function hsl(h: number, s: number, l: number): number {
-        h = h % 360;
-        s = Math.clamp(0, 99, s);
-        l = Math.clamp(0, 99, l);
-        let c = (((100 - Math.abs(2 * l - 100)) * s) << 8) / 10000; //chroma, [0,255]
-        let h1 = h / 60;//[0,6]
-        let h2 = (h - h1 * 60) * 256 / 60;//[0,255]
-        let temp = Math.abs((((h1 % 2) << 8) + h2) - 256);
-        let x = (c * (256 - (temp))) >> 8;//[0,255], second largest component of this color
-        let r$: number;
-        let g$: number;
-        let b$: number;
-        if (h1 == 0) {
-            r$ = c; g$ = x; b$ = 0;
-        } else if (h1 == 1) {
-            r$ = x; g$ = c; b$ = 0;
-        } else if (h1 == 2) {
-            r$ = 0; g$ = c; b$ = x;
-        } else if (h1 == 3) {
-            r$ = 0; g$ = x; b$ = c;
-        } else if (h1 == 4) {
-            r$ = x; g$ = 0; b$ = c;
-        } else if (h1 == 5) {
-            r$ = c; g$ = 0; b$ = x;
-        }
-        let m = ((l * 2 << 8) / 100 - c) / 2;
-        let r = r$ + m;
-        let g = g$ + m;
-        let b = b$ + m;
-        return packRGB(r, g, b);
     }
 
     export enum HueInterpolationDirection {
