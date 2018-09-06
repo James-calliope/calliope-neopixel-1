@@ -46,7 +46,7 @@ namespace neopixel {
      */
     export class Strip {
 	buf: Buffer;
-	colors[]: number[];
+	colors: number[]=[];
         pin: DigitalPin;
         // TODO: encode as bytes instead of 32bit
         brightness: number;
