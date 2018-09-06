@@ -416,11 +416,16 @@ namespace neopixel {
 				this.colors[i*stride]=redOld;
 				this.colors[(i*stride)+1]=greenOld;
 				this.colors[(i*stride)+2]=blueOld;
-				serial.writeNumber(rgb);
+				serial.writeNumber(redOld);
+				serial.writeLine("")
+				serial.writeNumber(geenOld);
+				serial.writeLine("")
+				serial.writeNumber(blueOld);
 				serial.writeLine("")
 				//this.colors[1]=50;
-				this.colors[i]=red;
-				serial.writeNumber(this.colors[i])
+				serial.writeNumber(this.colors[i*stride])
+				serial.writeNumber(this.colors[(i*stride)+1])
+				serial.writeNumber(this.colors[(i*stride)+2])
 				serial.writeLine("");
 
             }
