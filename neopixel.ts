@@ -478,16 +478,12 @@ namespace neopixel {
      * @param l luminosity from 0 to 99
      */
     export function hsl(h: number, s: number, l: number): number {
-        h = Math.round(h);
-        s = Math.round(s);
-        l = Math.round(l);
-        
         h = h % 360;
         s = Math.clamp(0, 99, s);
         l = Math.clamp(0, 99, l);
-        let c = Math.idiv((((100 - Math.abs(2 * l - 100)) * s) << 8), 10000); //chroma, [0,255]
-        let h1 = Math.idiv(h, 60);//[0,6]
-        let h2 = Math.idiv((h - h1 * 60) * 256, 60);//[0,255]
+        let c = (((100 - Math.abs(2 * l - 100)) * s) << 8) / 10000; //chroma, [0,255]
+        let h1 = h / 60;//[0,6]
+        let h2 = (h - h1 * 60) * 256 / 60;//[0,255]
         let temp = Math.abs((((h1 % 2) << 8) + h2) - 256);
         let x = (c * (256 - (temp))) >> 8;//[0,255], second largest component of this color
         let r$: number;
@@ -506,12 +502,12 @@ namespace neopixel {
         } else if (h1 == 5) {
             r$ = c; g$ = 0; b$ = x;
         }
-        let m = Math.idiv((Math.idiv((l * 2 << 8), 100) - c), 2);
+        let m = ((l * 2 << 8) / 100 - c) / 2;
         let r = r$ + m;
         let g = g$ + m;
         let b = b$ + m;
         return packRGB(r, g, b);
-	}
+    }
 
     export enum HueInterpolationDirection {
         Clockwise,
