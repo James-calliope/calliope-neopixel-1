@@ -220,15 +220,23 @@ namespace neopixel {
         //% weight=4
         //% parts="neopixel" advanced=true
         showSymbol(symbol: Symbols, rgb: number) {
-	    if(symbol === Symbols.Heart){
+			if (this._length <= 64) return;
+	    	if(symbol === Symbols.Heart){
 	    
-	    }else if(symbol===Symbols.Smiley){
-	        this.setPixelColor(11, rgb);
-		this.setPixelColor(14, rgb);
-		this.setPixelColor(19, rgb);
-		this.setPixelColor(22, rgb);
-	    }else if(symbol===Symbols.Note){
-	    }
+	    	}else if(symbol===Symbols.Smiley){
+	        	this.setPixelColor(10, rgb);
+				this.setPixelColor(13, rgb);
+				this.setPixelColor(18, rgb);
+				this.setPixelColor(21, rgb);
+				this.setPixelColor(41, rgb);
+				this.setPixelColor(46, rgb);
+				this.setPixelColor(50, rgb);
+				this.setPixelColor(51, rgb);
+				this.setPixelColor(52, rgb);
+				this.setPixelColor(53, rgb);
+
+	    	}else if(symbol===Symbols.Note){
+	    	}
             
         }
         
@@ -378,7 +386,7 @@ namespace neopixel {
 		serial.writeLine("")
 		//this.colors[1]=50;
 		this.colors[i]=50;
-		serial.writeNumber(this.colors[i])
+		serial.writeNumber(red)
 		serial.writeLine("");
 
             }
