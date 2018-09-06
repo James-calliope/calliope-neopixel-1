@@ -46,6 +46,7 @@ namespace neopixel {
      */
     export class Strip {
         buf: Buffer;
+	colors: Buffer;
         pin: DigitalPin;
         // TODO: encode as bytes instead of 32bit
         brightness: number;
@@ -250,16 +251,9 @@ namespace neopixel {
 	    const end = this.start + this._length;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             for (let i = this.start; i < end; ++i) {
-		let red =0;
-		let green =0;
-		if (this._mode === NeoPixelMode.RGB_RGB) {
-                    red=this.buf[i*stride];
-                    green=this.buf[i*stride+1];
-            	} else {
-                    green=this.buf[i*stride];
-                    red=this.buf[i*stride+1];
-            	}
-		let blue=this.buf[i*stride+2];
+		let red = unpackR(colors[i]);
+                let green = unpackG(colors[i]);
+                let blue = unpackB(colors[i]);
 				
 		if (br < 255) {
                     red = (red * br) >> 8;
@@ -340,7 +334,7 @@ namespace neopixel {
         }
 	
 
-        private setAllRGB(rgb: number) {
+        private setAllRGB(rgb: number) {	
             let red = unpackR(rgb);
             let green = unpackG(rgb);
             let blue = unpackB(rgb);
@@ -355,6 +349,7 @@ namespace neopixel {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             for (let i = this.start; i < end; ++i) {
                 this.setBufferRGB(i * stride, red, green, blue)
+		this.colors[i]=rgb;
             }
         }
         private setAllW(white: number) {
@@ -378,6 +373,7 @@ namespace neopixel {
                 return;
 
             let stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
+	    this.colors[pixeloffset]=rgb;
             pixeloffset = (pixeloffset + this.start) * stride;
 
             let red = unpackR(rgb);
@@ -424,6 +420,7 @@ namespace neopixel {
         let strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
         strip.buf= pins.createBuffer(numleds * stride);
+	strip.colors=pins.createBuffer(numleds);
         strip.start = 0;
         strip._length = numleds;
         strip._mode = mode;
