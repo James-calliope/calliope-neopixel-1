@@ -29,4 +29,5 @@
         }
     },
     "public": true
+    "installedVersion": "github:marenste/pxt-neopixel-master#2fbd3e19371a3179eb726a8bf53e1325d6037286"
 }
