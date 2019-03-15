@@ -1,5 +1,4 @@
 {
-  "NeoPixelColors.Black|block": "schwarz",
   "NeoPixelColors.Blue|block": "blau",
   "NeoPixelColors.Green|block": "grün",
   "NeoPixelColors.Indigo|block": "indigo",
@@ -9,6 +8,8 @@
   "NeoPixelColors.Violet|block": "blauviolett",
   "NeoPixelColors.White|block": "weiß",
   "NeoPixelColors.Yellow|block": "gelb",
+  "NeoPixelColors.Pink|block": "pink",
+  "NeoPixelColors.Terquoise|block": "türkis",
   "Symbols.Heart|block":"Herz",
   "Symbols.Smiley|block":"Smiley",
   "Symbols.Note|block":"Note",

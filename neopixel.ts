@@ -16,10 +16,14 @@ enum NeoPixelColors {
     Indigo = 0x4b0082,
     //% block=violet
     Violet = 0x8a2be2,
+    //%block=pink
+    Pink = 0xFFCACA,
     //% block=purple
     Purple = 0xFF00FF,
     //% block=white
     White = 0xFFFFFF,
+    //%block=terquoise
+    Terquoise = 0x1AEFB3, 
 }
 
 /**
