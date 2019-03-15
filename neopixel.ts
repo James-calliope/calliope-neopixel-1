@@ -43,7 +43,19 @@ enum Symbols {
        Smiley,
        Note
    
-   }
+}
+
+enum Row {
+    RowOne = 1,
+    RowTwo = 2,
+    RowThree = 3,
+    RowFour = 4,
+    RowFive = 5,
+    RowSix = 6,
+    RowSeven = 7,
+    RowEight = 8
+}
+
 
 /**
  * Functions to operate NeoPixel strips.
@@ -273,6 +285,39 @@ namespace neopixel {
 				this.setPixelColor(53, rgb);
 	    	}
             
+        }
+
+
+
+    /**
+         * Set single Pixels of the LED-matrix to a given color (range 0-255 for r, g, b) in a matrix shaped strip 
+         * You need to call ``show`` to make the changes visible.
+         * @param rgb RGB color of the LED
+         * @param row the row of the matrix
+         */
+        //% blockId="neopixel_generate_symbol" block="%strip|set row %row=Row in color %rgb=neopixel_colors %rgb=neopixel_colors %rgb=neopixel_colors %rgb=neopixel_colors %rgb=neopixel_colors %rgb=neopixel_colors %rgb=neopixel_colors %rgb=neopixel_colors" 
+        //% weight=4
+        //% parts="neopixel"
+        createSymbol(row: number, rgb1: number, rgb2: number, rgb3: number, rgb4: number, rgb5: number, rgb6: number, rgb7: number, rgb8: number) {
+            var array = new Array();
+			if (this._length < 64) return;
+	    	if(row % 2 == 0){
+                for (var i = 1; i < 9; i++){
+                    array[i-1] = 8* row -1;
+                }
+            }else {
+                for (var i = 1; i < 9; i++){
+                    array[i-1] = 8* row -(9-i);
+                }
+            }
+            this.setPixelColor(array[0], rgb1);
+            this.setPixelColor(array[1], rgb2);
+            this.setPixelColor(array[2], rgb3);
+            this.setPixelColor(array[3], rgb4);
+            this.setPixelColor(array[4], rgb5);
+            this.setPixelColor(array[5], rgb6);
+            this.setPixelColor(array[6], rgb7);
+            this.setPixelColor(array[7], rgb8);
         }
         
 
