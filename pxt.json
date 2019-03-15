@@ -1,7 +1,7 @@
 {
     "name": "neopixel",
-    "version": "0.6.8",
-    "description": "AdaFruit NeoPixel driver test",
+    "version": "1",
+    "description": "NeoPixel Extension for Callipe",
     "license": "MIT",
     "dependencies": {
         "core": "*",

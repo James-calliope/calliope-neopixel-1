@@ -23,7 +23,7 @@ enum NeoPixelColors {
     //% block=white
     White = 0xFFFFFF,
     //%block=terquoise
-    Terquoise = 0x1AEFB3, 
+    Terquoise = 0x1AEFB3
 }
 
 /**
