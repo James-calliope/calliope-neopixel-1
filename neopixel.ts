@@ -20,8 +20,6 @@ enum NeoPixelColors {
     Purple = 0xFF00FF,
     //% block=white
     White = 0xFFFFFF,
-    //% block=black
-    Black = 0x000000
 }
 
 /**
@@ -181,7 +179,7 @@ namespace neopixel {
         //% blockId="neopixel_set_pixel_color" block="%strip|set pixel color at %pixeloffset|to %rgb=neopixel_colors" 
         //% blockGap=8
         //% weight=80
-        //% parts="neopixel" advanced=true
+        //% parts="neopixel"
         setPixelColor(pixeloffset: number, rgb: number): void {
             this.setPixelRGB(pixeloffset, rgb);
         }
@@ -195,7 +193,7 @@ namespace neopixel {
          */
         //% blockId="neopixel_show_symbol" block="%strip|set symbol %symbol in color %rgb=neopixel_colors" 
         //% weight=4
-        //% parts="neopixel" advanced=true
+        //% parts="neopixel"
         showSymbol(symbol: Symbols, rgb: number) {
 			if (this._length < 64) return;
 	    	if(symbol === Symbols.Heart){
@@ -309,7 +307,7 @@ namespace neopixel {
          */
         //% blockId="neopixel_set_brightness" block="%strip|set brightness %brightness" blockGap=8
         //% weight=59
-        //% parts="neopixel" advanced=true
+        //% parts="neopixel"
         setBrightness(brightness: number): void {
             this.brightness = brightness & 0xff;
 	    	let br = this.brightness;
@@ -525,7 +523,6 @@ namespace neopixel {
      */
     //% weight=1
     //% blockId="neopixel_rgb" block="red %red|green %green|blue %blue"
-    //% advanced=true
     export function rgb(red: number, green: number, blue: number): number {
         return packRGB(red, green, blue);
     }
@@ -535,7 +532,6 @@ namespace neopixel {
     */
     //% weight=2 blockGap=8
     //% blockId="neopixel_colors" block="%color"
-    //% advanced=true
     export function colors(color: NeoPixelColors): number {
         return color;
     }
