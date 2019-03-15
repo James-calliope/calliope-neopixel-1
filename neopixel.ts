@@ -298,7 +298,7 @@ namespace neopixel {
         //% blockId="neopixel_generate_symbol" block="%strip|set row %row=Row in color %rgb=neopixel_colors %rgb=neopixel_colors %rgb=neopixel_colors %rgb=neopixel_colors %rgb=neopixel_colors %rgb=neopixel_colors %rgb=neopixel_colors %rgb=neopixel_colors" 
         //% weight=4
         //% parts="neopixel"
-        createSymbol(row: number, rgb1: number, rgb2: number, rgb3: number, rgb4: number, rgb5: number, rgb6: number, rgb7: number, rgb8: number) {
+        /* createSymbol(row: number, rgb1: number, rgb2: number, rgb3: number, rgb4: number, rgb5: number, rgb6: number, rgb7: number, rgb8: number) {
             var array = new Array();
 			if (this._length < 64) return;
 	    	if(row % 2 == 0){
@@ -318,8 +318,8 @@ namespace neopixel {
             this.setPixelColor(array[5], rgb6);
             this.setPixelColor(array[6], rgb7);
             this.setPixelColor(array[7], rgb8);
-        }
-        
+        }  */
+                
 
         /**
          * Send all the changes to the strip.
